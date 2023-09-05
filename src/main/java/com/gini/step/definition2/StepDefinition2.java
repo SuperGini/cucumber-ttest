@@ -5,11 +5,14 @@ import com.gini.step.context.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.spring.CucumberTestContext;
+import org.springframework.context.annotation.Scope;
 
-
-
-
-
+/**
+ *  ca sa stie ca e un step definition fara sa mai adaugam calea in clasa de configurare a lui Cucumber
+ *
+ * */
+@Scope(CucumberTestContext.SCOPE_CUCUMBER_GLUE) //
 public class StepDefinition2 {
 
 
@@ -25,7 +28,7 @@ public class StepDefinition2 {
 
     @When("^User enters application with (.+) and password (.+)$")
     public void user_enters_application_with_gigel_and_password(String username, String password) {
-       // System.out.println("executing WHEN with username: " + username + " and password: " + password);
+        // System.out.println("executing WHEN with username: " + username + " and password: " + password);
         Person z = x.get("gica", Person.class);
         System.out.println(z);
 
@@ -34,9 +37,9 @@ public class StepDefinition2 {
     @Then("Home Page is displayed at the end")
     public void home_page_is_displayed_at_the_end() {
         //   log.info("executing THEN");
-      //  assertEquals(1, 2);
+        //  assertEquals(1, 2);
 
-    //    System.out.println(testContext.getRandomString());
+        //    System.out.println(testContext.getRandomString());
 
     }
 
